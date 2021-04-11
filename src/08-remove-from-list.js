@@ -17,8 +17,46 @@
  * }
  */
 
-function removeKFromList(/* l, k */) {
-  throw new Error('Not implemented');
+function removeKFromList(l, k) {
+  let node = l;
+  while (node.next !== null) {
+    if (node.value === k) {
+      node.value = node.next.value;
+      node.next = node.next.next;
+    } else {
+      node = node.next;
+    }
+  }
+  return l;
 }
+/*
+  }
+  while (currentNode) {
+    if (currentNode.value === k) {
+      if (prevNode) {
+        prevNode.next = currentNode.next;
+      } else {
+        currentNode = currentNode.next;
+      }
+    } else {
+      // переходим к следующим узлам
+      prevNode = currentNode;
+      currentNode = currentNode.next;
+    }
+  }
+  return currentNode; */
+/*
+  let head = l;
+  const prev = null;
+  while (head) {
+    if (head.value === k) {
+      if (prev) {
+        prev.next = head.next;
+      } else {
+        head = head.next;
+      }
+    }
+  }
+  return head; */
 
 module.exports = removeKFromList;
